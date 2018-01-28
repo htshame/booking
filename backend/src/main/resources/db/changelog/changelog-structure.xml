@@ -1,0 +1,134 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+        logicalFilePath="changelog-structure.xml">
+
+    <changeSet id="1" author="zagnitko">
+        <validCheckSum></validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="users"/>
+            </not>
+        </preConditions>
+        <comment>Users Table</comment>
+        <createTable tableName="users">
+            <column name="id" type="BIGSERIAL" autoIncrement="true">
+                <constraints nullable="false" primaryKeyName="pk_user"/>
+            </column>
+            <column name="username" type="varchar(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="email" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="enabled" type="boolean">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="zagnitko">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="user_roles"/>
+            </not>
+        </preConditions>
+        <comment>Roles Table</comment>
+        <createTable tableName="user_roles">
+            <column autoIncrement="true" name="user_role_id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_user_role"/>
+            </column>
+            <column name="username" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="zagnitko">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_user_roles_users_username"/>
+            </not>
+            <tableExists tableName="users"/>
+            <tableExists tableName="user_roles"/>
+        </preConditions>
+        <addForeignKeyConstraint
+              constraintName="fk_user_roles_users_username"
+              referencedTableName="users"
+              baseColumnNames="username"
+              baseTableName="user_roles"
+              referencedColumnNames="username"/>
+    </changeSet>
+
+    <changeSet id="4" author="zagnitko">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="booking"/>
+            </not>
+        </preConditions>
+        <comment>Booking Table</comment>
+        <createTable tableName="booking">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_booking"/>
+            </column>
+            <column name="start" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stop" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+    
+    <changeSet id="5" author="zagnitko">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_booking_user_users_username"/>
+            </not>
+            <tableExists tableName="users"/>
+            <tableExists tableName="booking"/>
+        </preConditions>
+        <addForeignKeyConstraint
+              constraintName="fk_booking_user_users_username"
+              referencedTableName="users"
+              baseColumnNames="user"
+              baseTableName="booking"
+              referencedColumnNames="username"/>
+    </changeSet>
+    
+    <changeSet id="6" author="zagnitko">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="working"/>
+            </not>
+        </preConditions>
+        <comment>Working hours table</comment>
+        <createTable tableName="working">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_working"/>
+            </column>
+            <column name="working_start" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="working_end" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
