@@ -1,14 +1,15 @@
-<div class="book-view" align="center">
-    <h1>Enter booking date and time</h1>
+<div class="b-view">
+    <h3>Set booking date and time</h3>
 </div>
-<h3>Set booking date (e.g. 2017.10.22)</h3>
-<p>Date</p>
-<input class="date" [(ngModel)]='bookingDate'>
-<h3>Set booking start time (e.g. 10:00)</h3>
-<p>Start time</p>
-<input class="time" [(ngModel)]='startTime'>
-<h3>Set booking duration hours (e.g. 2)</h3>
-<p>Duration</p>
-<input class="duration" [(ngModel)]='duration'>
-<br>
+<div class="b-label-div">
+	<label>Booking starts:&nbsp;</label>
+	<input [owlDateTimeTrigger]="bStart" [owlDateTime]="bStart" [(ngModel)]='bookingStart'>
+	<owl-date-time #bStart></owl-date-time>
+</div>
+<div class="b-label-div">
+	<label>Booking ends:&nbsp;</label>
+	<input [owlDateTimeTrigger]="bEnd" [owlDateTime]="bEnd" [(ngModel)]='bookingEnd'>
+	<owl-date-time #bEnd></owl-date-time>
+</div>
+
 <button (click)="bookMeeting()">Book</button>

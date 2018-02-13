@@ -4,6 +4,10 @@ import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { ToasterModule } from 'angular5-toaster/dist';
 
 import { HttpInterceptor } from './http/http.interceptor';  
 import { WindowRef } from './environments/window.ref';
@@ -35,7 +39,11 @@ export function httpFactory(backend: XHRBackend, options: RequestOptions, window
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    ToasterModule
   ],
   providers: [
     MainService,

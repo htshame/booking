@@ -21,7 +21,6 @@ public class UserRoles {
         this.username = username;
         this.role = role;
     }
-
     
     @Id
     @GeneratedValue

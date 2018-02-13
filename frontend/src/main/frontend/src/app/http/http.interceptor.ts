@@ -11,13 +11,9 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class HttpInterceptor extends Http {
-
-    isPending: any[];
-
     window: any;
     constructor(backend: ConnectionBackend, defaultOptions: RequestOptions, window: WindowRef, private router: Router) {
         super(backend, defaultOptions);
-        this.isPending = [];
         this.window = window;
     }
 
@@ -81,13 +77,9 @@ export class HttpInterceptor extends Http {
     }
 
     private beforeRequest(): void {
-        this.isPending.push(1);
     }
 
     private afterRequest(): void {
-        if (this.isPending.length > 0) {
-            this.isPending.splice(0, 1);
-        }
     }
 
     private onCatch(error: any, caught: Observable<any>): Observable<any> {
@@ -134,9 +126,5 @@ export class HttpInterceptor extends Http {
             return cleanParams;
         }
         return null;
-    }
-
-    public getHttpIsPending() {
-        return this.isPending.length;
     }
 }

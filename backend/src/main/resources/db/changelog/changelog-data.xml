@@ -38,8 +38,6 @@
         <insert tableName="users">
             <column name="username" value="admin"/>
             <column name="password" value="admin"/>
-            <column name="email" value="admin@admin.com"/>
-            <column name="name" value="John Doe"/>
             <column name="enabled" value="1"/>
         </insert>
         <insert tableName="user_roles">
@@ -52,8 +50,6 @@
         </insert>
         <insert tableName="users">
             <column name="username" value="user"/>
-            <column name="email" value="user@user.com"/>
-            <column name="name" value="Jane Doe"/>
             <column name="password" value="user"/>
             <column name="enabled" value="1"/>
         </insert>

@@ -1,4 +1,4 @@
-package zagnitko.booking.app.security;
+package zagnitko.booking.app.config;
 
 import javax.sql.DataSource;
 

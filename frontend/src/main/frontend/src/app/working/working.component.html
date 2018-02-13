@@ -1,10 +1,16 @@
-<div class="working-view">
-    <h3>Set working hours time (e.g. 12:30)</h3>
-    <p>From</p>
-    <input class="from" [(ngModel)]='timeFrom'>
-    <p>To</p>
-    <input class="to" [(ngModel)]='timeTo'>
-    <br>
-    <button (click)="setWorkingHours()">Set working hours</button>
+<div class="w-view">
+    <h3>Set working hours</h3>
+    <label>
+	    <span>From:&nbsp;</span>
+	    <input [owlDateTimeTrigger]="tFrom" [owlDateTime]="tFrom" [(ngModel)]='timeFrom'>
+	    <owl-date-time [pickerType]="'timer'" #tFrom></owl-date-time>
+	</label>
+    <label>
+	    <span>To:&nbsp;</span>
+	    <input [owlDateTimeTrigger]="tTo" [owlDateTime]="tTo" [(ngModel)]='timeTo'>
+	    <owl-date-time [pickerType]="'timer'" #tTo></owl-date-time>
+	</label>
+	<div class="w-save-div">
+    	<button (click)="setWorkingHours()">Set working hours</button>
+    </div>
 </div>
-
