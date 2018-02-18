@@ -4,7 +4,7 @@ import { HttpInterceptor } from './../../http/http.interceptor';
 import { ToasterService } from 'angular5-toaster/dist';
 
 @Component({
-    moduleId: module.id,  
+    moduleId: module.id,
     selector: 'book',
     templateUrl: './book.component.html',
     styleUrls: ['./book.component.css']

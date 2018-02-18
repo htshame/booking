@@ -87,8 +87,7 @@
             </column>
         </createTable>
     </changeSet>
-    
-    
+
     <changeSet id="5" author="zagnitko">
         <preConditions onFail="MARK_RAN">
             <not>
@@ -104,7 +103,7 @@
               baseTableName="booking"
               referencedColumnNames="username"/>
     </changeSet>
-    
+
     <changeSet id="6" author="zagnitko">
         <preConditions onFail="MARK_RAN">
             <not>

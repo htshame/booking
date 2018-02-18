@@ -9,11 +9,11 @@ export class WorkingService {
     }
 
     getWorkingHours(): Observable<any> {
-        return this.http.get('booking/working/getData', null).map(res => res.json());
+        return this.http.get('booking/api/working/get', null).map(res => res.json());
     }
 
     setWorkingHours(data): Observable<any> {
-        return this.http.post('booking/working/setData', data).map(res => res.json());
+        return this.http.post('booking/api/working/save', data).map(res => res.json());
     }
 
 }
