@@ -1,20 +1,9 @@
 package zagnitko.booking.app.controller;
 
-import static org.springframework.web.bind.annotation.RequestMethod.PUT;
-
-import java.util.Date;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import zagnitko.booking.app.entity.Working;
 import zagnitko.booking.app.service.WorkingHoursService;
 
@@ -22,18 +11,36 @@ import zagnitko.booking.app.service.WorkingHoursService;
 @RequestMapping("/booking/api/working")
 public class WorkingHoursController {
 
-    @Autowired
-    private WorkingHoursService service;
+    private final WorkingHoursService workingHoursService;
 
-    @RequestMapping(value = "/get", method = GET, produces = {"application/json"})
-    public ResponseEntity<Object> get() {
-        return new ResponseEntity<>(service.findOne(), HttpStatus.OK);
+    /**
+     * Constructor.
+     * @param workingHoursService - workingHoursService.
+     */
+    @Autowired
+    public WorkingHoursController(WorkingHoursService workingHoursService) {
+        this.workingHoursService = workingHoursService;
     }
 
-    @RequestMapping(value = "/save", method = POST, produces = {"application/json"})
-    public ResponseEntity<Object> save(@RequestBody Working working) {
-        service.save(new Working(working.getWorkingStart(), working.getWorkingEnd()));
-        return new ResponseEntity<>("success", HttpStatus.OK);
+    /**
+     * Get working hours by id.
+     * @param workingHoursId - working hours id.
+     * @return working hours.
+     */
+    @GetMapping(value = "/{workingHoursId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Object> getWorkingHoursById(@PathVariable("workingHoursId") Long workingHoursId) {
+        return ResponseEntity.ok(workingHoursService.findOne(workingHoursId));
+    }
+
+    /**
+     * Save working hours.
+     * @param working - working hours data.
+     * @return saved working hours.
+     */
+    @PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Working> saveWorkingHours(@RequestBody Working working) {
+        Working savedWorking = workingHoursService.saveWorkingHours(working);
+        return ResponseEntity.ok(savedWorking);
     }
 
 }
