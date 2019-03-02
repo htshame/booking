@@ -12,15 +12,6 @@ import javax.persistence.*;
 @Table(name = "user_roles")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserRoles {
-
-    public UserRoles() {
-    }
-
-    public UserRoles(Long id, String username, String role) {
-        this.id = id;
-        this.username = username;
-        this.role = role;
-    }
     
     @Id
     @GeneratedValue
@@ -32,6 +23,16 @@ public class UserRoles {
 
     @Column(name = "role")
     private String role;
+
+    public UserRoles() {
+
+    }
+
+    public UserRoles(Long id, String username, String role) {
+        this.id = id;
+        this.username = username;
+        this.role = role;
+    }
 
     public Long getId() {
         return id;

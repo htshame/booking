@@ -22,18 +22,18 @@ import zagnitko.booking.app.service.WorkingHoursService;
 @RequestMapping("/booking/api/working")
 public class WorkingHoursController {
 
-	@Autowired
-	private WorkingHoursService service;
+    @Autowired
+    private WorkingHoursService service;
 
-	@RequestMapping(value = "/get", method = GET, produces = {"application/json"})
+    @RequestMapping(value = "/get", method = GET, produces = {"application/json"})
     public ResponseEntity<Object> get() {
-        return new ResponseEntity<Object>(service.findOne(), HttpStatus.OK);
+        return new ResponseEntity<>(service.findOne(), HttpStatus.OK);
     }
 
-	@RequestMapping(value = "/save", method = POST, produces = {"application/json"})
+    @RequestMapping(value = "/save", method = POST, produces = {"application/json"})
     public ResponseEntity<Object> save(@RequestBody Working working) {
-		service.save(new Working(working.getWorkingStart(), working.getWorkingEnd()));
-        return new ResponseEntity<Object>("success", HttpStatus.OK);
+        service.save(new Working(working.getWorkingStart(), working.getWorkingEnd()));
+        return new ResponseEntity<>("success", HttpStatus.OK);
     }
 
 }

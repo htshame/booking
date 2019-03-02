@@ -2,21 +2,21 @@
 @import "~angular5-toaster/dist/toaster.css";
 
 body {
-	margin: 0px;
-	background: #e9f7ff;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0px;
+  background: #e9f7ff;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #router-outlet {
-	margin: 10px;
+  margin: 10px;
 }
 
 button {
-	border: solid 2px #2c7ca2;
-	height: 30px;
-	padding-bottom: 2px;
-	background: #beeaff;
-	color: #2d5c5c;
-	font-weight: 600;
-	cursor: pointer;
+  border: solid 2px #2c7ca2;
+  height: 30px;
+  padding-bottom: 2px;
+  background: #beeaff;
+  color: #2d5c5c;
+  font-weight: 600;
+  cursor: pointer;
 }

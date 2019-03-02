@@ -6,7 +6,6 @@
         logicalFilePath="changelog-structure.xml">
 
     <changeSet id="1" author="zagnitko">
-        <validCheckSum></validCheckSum>
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="users"/>

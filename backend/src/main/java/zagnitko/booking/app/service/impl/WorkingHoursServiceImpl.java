@@ -10,16 +10,16 @@ import zagnitko.booking.app.service.WorkingHoursService;
 @Service
 public class WorkingHoursServiceImpl implements WorkingHoursService {
 
-	@Autowired
+    @Autowired
     private WorkingHoursRepository repository;
-	
-	@Override
-	public Working findOne() {
-		return repository.findOne(1L);
-	}
+    
+    @Override
+    public Working findOne() {
+        return repository.findOne(1L);
+    }
 
-	@Override
-	public void save(Working working) {
-		repository.save(working);
-	}
+    @Override
+    public void save(Working working) {
+        repository.save(working);
+    }
 }

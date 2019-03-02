@@ -13,19 +13,6 @@ import javax.persistence.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
-    public User() {
-    }
-
-    public User(Long id, String username, String email, String password, String name, Boolean enabled) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.name = name;
-        this.enabled = enabled;
-    }
-
-
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -45,6 +32,19 @@ public class User {
 
     @Column(name = "enabled")
     private Boolean enabled;
+
+    public User() {
+
+    }
+
+    public User(Long id, String username, String email, String password, String name, Boolean enabled) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.enabled = enabled;
+    }
 
     public Long getId() {
         return id;
