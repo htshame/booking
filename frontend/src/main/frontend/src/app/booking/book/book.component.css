@@ -1,6 +1,6 @@
 .b-label-div {
-	margin-bottom: 20px;
-	width: 400px;
-	display: grid;
-  	grid-template-columns: 1fr 2fr;
+  margin-bottom: 20px;
+  width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }

@@ -1,5 +1,5 @@
 <div class="m-view" align="center">
-    <p>This is the main page. It's empty &#9786;</p>
+  <p>This is the main page. It's empty &#9786;</p>
 </div>
 <div class="m-help-div">
     <span (click)="openHelp()">
@@ -11,11 +11,15 @@
     </span>
 </div>
 <div *ngIf="isHelpOpen" [@openHelp] class="m-help">
-	<ul>
-		<span class="fat">Hello there!</span><br/>
-		<li>This application allows you to book a hypothetical meeting room in a hypothetical office for certain period of time.</li>
-		<li>The office has it's working hours, which could be set by getting to <span class="fat">Working hours -> Change</span></li>
-		<li>You can book the meeting time by navigating to <span class="fat">Booking -> Book the room</span></li>
-		<li>You can view the periods of time during which the room is already booked here: <span class="fat">Booking -> View</span></li>
-	</ul>
+  <ul>
+    <span class="fat">Hello there!</span><br/>
+    <li>This application allows you to book a hypothetical meeting room in a hypothetical office for certain period of
+      time.
+    </li>
+    <li>The office has it's working hours, which could be set by getting to <span
+      class="fat">Working hours -> Change</span></li>
+    <li>You can book the meeting time by navigating to <span class="fat">Booking -> Book the room</span></li>
+    <li>You can view the periods of time during which the room is already booked here: <span
+      class="fat">Booking -> View</span></li>
+  </ul>
 </div>

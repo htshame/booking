@@ -57,11 +57,11 @@
             <tableExists tableName="user_roles"/>
         </preConditions>
         <addForeignKeyConstraint
-              constraintName="fk_user_roles_users_username"
-              referencedTableName="users"
-              baseColumnNames="username"
-              baseTableName="user_roles"
-              referencedColumnNames="username"/>
+                constraintName="fk_user_roles_users_username"
+                referencedTableName="users"
+                baseColumnNames="username"
+                baseTableName="user_roles"
+                referencedColumnNames="username"/>
     </changeSet>
 
     <changeSet id="4" author="zagnitko">
@@ -96,11 +96,11 @@
             <tableExists tableName="booking"/>
         </preConditions>
         <addForeignKeyConstraint
-              constraintName="fk_booking_user_users_username"
-              referencedTableName="users"
-              baseColumnNames="user"
-              baseTableName="booking"
-              referencedColumnNames="username"/>
+                constraintName="fk_booking_user_users_username"
+                referencedTableName="users"
+                baseColumnNames="user"
+                baseTableName="booking"
+                referencedColumnNames="username"/>
     </changeSet>
 
     <changeSet id="6" author="zagnitko">

@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan( basePackages = {"zagnitko.booking.app.entity"} )
+@EntityScan(basePackages = {"zagnitko.booking.app.entity"})
 public class BookingApplication {
 
     public static void main(String[] args) {

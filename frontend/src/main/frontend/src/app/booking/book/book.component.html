@@ -1,15 +1,15 @@
 <div class="b-view">
-    <h3>Set booking date and time</h3>
+  <h3>Set booking date and time</h3>
 </div>
 <div class="b-label-div">
-	<label>Booking starts:&nbsp;</label>
-	<input [owlDateTimeTrigger]="bStart" [owlDateTime]="bStart" [(ngModel)]='bookingStart'>
-	<owl-date-time #bStart></owl-date-time>
+  <label>Booking starts:&nbsp;</label>
+  <input [owlDateTimeTrigger]="bStart" [owlDateTime]="bStart" [(ngModel)]='bookingStart'>
+  <owl-date-time #bStart></owl-date-time>
 </div>
 <div class="b-label-div">
-	<label>Booking ends:&nbsp;</label>
-	<input [owlDateTimeTrigger]="bEnd" [owlDateTime]="bEnd" [(ngModel)]='bookingEnd'>
-	<owl-date-time #bEnd></owl-date-time>
+  <label>Booking ends:&nbsp;</label>
+  <input [owlDateTimeTrigger]="bEnd" [owlDateTime]="bEnd" [(ngModel)]='bookingEnd'>
+  <owl-date-time #bEnd></owl-date-time>
 </div>
 
 <button (click)="bookMeeting()">Book</button>

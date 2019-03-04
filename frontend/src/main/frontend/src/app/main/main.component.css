@@ -1,30 +1,30 @@
 .m-view p {
-	font-size: 30px;
-    cursor: default;
+  font-size: 30px;
+  cursor: default;
 }
 
 .m-underline {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .m-help-div {
-    display: flex;
-    margin-top: 30px;
-    margin-left: 5px;
+  display: flex;
+  margin-top: 30px;
+  margin-left: 5px;
 }
 
 .m-help-div span {
-    font-size: 20px;
-    cursor: pointer;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .m-help {
-    float: left;
-    text-align: left;
-    cursor: default;
-    margin-top: 20px;
+  float: left;
+  text-align: left;
+  cursor: default;
+  margin-top: 20px;
 }
 
 .fat {
-	font-weight: 600;
+  font-weight: 600;
 }

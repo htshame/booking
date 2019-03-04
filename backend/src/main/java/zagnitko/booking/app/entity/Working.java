@@ -9,18 +9,15 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Working hours entity.
- * @author zagnitko
- */
+import zagnitko.booking.app.dto.WorkingHoursDTO;
+
 @Entity
 @Table(name = "WORKING")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Working {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "working_start")
@@ -33,10 +30,18 @@ public class Working {
 
     }
 
-    public Working(String workingStart, String workingEnd) {
-        this.id = 1L;
-        this.workingStart = workingStart;
-        this.workingEnd = workingEnd;
+    public Working(WorkingHoursDTO workingHoursDTO) {
+        this.id = workingHoursDTO.getId();
+        this.workingStart = workingHoursDTO.getWorkingStart();
+        this.workingEnd = workingHoursDTO.getWorkingEnd();
+    }
+
+    public WorkingHoursDTO toWorkingHoursDTO() {
+        WorkingHoursDTO workingHoursDTO = new WorkingHoursDTO();
+        workingHoursDTO.setId(this.id);
+        workingHoursDTO.setWorkingStart(this.workingStart);
+        workingHoursDTO.setWorkingEnd(this.workingEnd);
+        return workingHoursDTO;
     }
 
     public Long getId() {
